@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BackForFrontend;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace back_for_frontend.Controllers
+namespace WebApp.Controllers
 {
     [ApiController]
     [Route("[controller]")]
