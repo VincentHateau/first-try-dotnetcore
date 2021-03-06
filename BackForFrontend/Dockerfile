@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY back-for-frontend.csproj back-for-frontend/
-RUN dotnet restore back-for-frontend/back-for-frontend.csproj
-COPY . back-for-frontend/
-WORKDIR /src/back-for-frontend
-RUN dotnet build back-for-frontend.csproj -c Release -o /app/build
+COPY BackForFrontend.csproj BackForFrontend/
+RUN dotnet restore BackForFrontend/BackForFrontend.csproj
+COPY . BackForFrontend/
+WORKDIR /src/BackForFrontend
+RUN dotnet build BackForFrontend.csproj -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish back-for-frontend.csproj -c Release -o /app/publish
+RUN dotnet publish BackForFrontend.csproj -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "back-for-frontend.dll"]
+ENTRYPOINT ["dotnet", "BackForFrontend.dll"]

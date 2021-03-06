@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace back_for_frontend
+namespace BackForFrontend
 {
     public class Program
     {
